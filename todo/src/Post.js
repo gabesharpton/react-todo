@@ -1,19 +1,40 @@
 import React, { Component } from 'react'
+import posts from './posts'
+
+// let posts = [
+//     { title: 'Intro',
+//     author: 'Ebag',
+//     body: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus illo adipisci voluptas animi earum voluptates repudiandae ipsa qui, deleniti, eligendi quibusdam doloremque at molestias quidem! Neque qui distinctio quos incidunt."
+//     },
+//     { title: "Second",
+//       author: 'Gabe',
+//       body: "This is the second post Boy"}
+// ]
 
 export default class Post extends Component{
-    // let styles = {
-    //     backgroundColor: 'green'
-    // }
+    constructor(){
+        super()
+        this.state = {
+           posts: posts
+        }
+    }
     render(){
   return (
     <div className="Post">
-        
-      <h1 style={{backgroundColor: 'green'}}>This is a {this.props.title}</h1>
-      <p>By: {this.props.author}</p>
-      <div>{this.props.body}</div>
 
-      <h1 style={{backgroundColor: 'red'}}>This is post 2</h1>
-    </div>
-  );
-}
-}
+{this.state.posts.map(posts => {
+    return(
+        
+        <div className="Posts" key={posts.title}>
+            <h1>{posts.title}</h1>
+        <h2>By: {posts.author}</h2>
+        <div>{posts.body}</div>
+    </div>)
+})}
+      {/* <h1 style={{backgroundColor: 'green'}}>Post 1: {posts.title}</h1>
+      <p>By: {this.state.author}</p>
+      <div>{this.state.body}</div>
+
+      <h1 style={{backgroundColor: 'red'}}>Post 2: {this.state.title}</h1>
+    </div> */}
+    </div>)}}
