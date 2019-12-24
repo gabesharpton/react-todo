@@ -20,16 +20,25 @@ export default class Post extends Component{
     }
     render(){
   return (
-    <div className="Post">
+    <div className="Todo">
 
 {this.state.posts.map(posts => {
+    if(posts.completed !== true){
     return(
-        
         <div className="Posts" key={posts.title}>
+        <h1>Still needs done:</h1>
             <h1>{posts.title}</h1>
         <h2>By: {posts.author}</h2>
         <div>{posts.body}</div>
+        <div>{posts.compelted}</div>
     </div>)
+    }
+    else{return(
+    <div>
+        Completed:
+        <h2>{posts.title}</h2>
+        
+        </div>)}
 })}
       {/* <h1 style={{backgroundColor: 'green'}}>Post 1: {posts.title}</h1>
       <p>By: {this.state.author}</p>
